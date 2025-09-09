@@ -29,8 +29,8 @@ export const NewMovie = ({ onAdd }: Props) => {
     );
   }
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function handleSubmit(submitEvent: React.FormEvent<HTMLFormElement>) {
+    submitEvent.preventDefault();
     if (!isFormValid()) {
       return;
     }
