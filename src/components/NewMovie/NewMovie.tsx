@@ -8,13 +8,14 @@ type Props = {
 
 export const NewMovie = ({ onAdd }: Props) => {
   const [reset, setReset] = useState(0);
-  const [form, setForm] = useState({
+  const initialForm = {
     title: '',
     description: '',
     imgUrl: '',
     imdbUrl: '',
     imdbId: '',
-  });
+  };
+  const [form, setForm] = useState(initialForm);
 
   function handleChange(field: keyof typeof form, value: string) {
     setForm({ ...form, [field]: value });
@@ -36,13 +37,7 @@ export const NewMovie = ({ onAdd }: Props) => {
     }
 
     onAdd(form);
-    setForm({
-      title: '',
-      description: '',
-      imgUrl: '',
-      imdbUrl: '',
-      imdbId: '',
-    });
+    setForm(initialForm);
     setReset(reset + 1);
   }
 
